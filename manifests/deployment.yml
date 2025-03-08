@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: pod-metadata-deployment
+  namespace: default  # 👈 Add this line
   labels:
     app: pod-metadata
-  name: pod-metadata-deployment
 spec:
   replicas: 1
   selector:
@@ -20,7 +21,7 @@ spec:
     spec:
       containers:
         - name: test-container
-          image:  siddharth67/pod-metadata:v1
+          image: siddharth67/pod-metadata:v1
           imagePullPolicy: Always
           resources:
             requests:
